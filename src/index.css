@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #101828;
+  --color-ink-soft: #344054;
+  --color-muted: #475467;
+  --color-electric: #2563eb;
+  --color-electric-dark: #1d4ed8;
+  --color-electric-soft: #eff4ff;
+  --color-silver: #c0c0c0;
+  --color-silver-soft: #e4e7ec;
+  --color-mist: #f8fafc;
+  --color-wa: #25d366;
+  --color-wa-dark: #1ebe5a;
+
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Manrope Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-card: 0 1px 2px rgb(16 24 40 / 0.04), 0 1px 3px rgb(16 24 40 / 0.06);
+  --shadow-lift: 0 12px 32px -12px rgb(16 24 40 / 0.18), 0 4px 8px -4px rgb(16 24 40 / 0.06);
+  --shadow-mockup: 0 32px 64px -24px rgb(16 24 40 / 0.28), 0 8px 16px -8px rgb(16 24 40 / 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    overflow-x: clip;
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  ::selection {
+    background: rgb(37 99 235 / 0.15);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-electric);
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: 1rem;
+
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Línea metalizada: detalle gris plata entre bloques. */
+@utility silver-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-silver) 20%, var(--color-silver) 80%, transparent);
+}
+
+@utility grid-pattern {
+  background-image:
+    linear-gradient(to right, rgb(192 192 192 / 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(192 192 192 / 0.22) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Aparición sutil al hacer scroll. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+dialog::backdrop {
+  background: rgb(16 24 40 / 0.55);
+  backdrop-filter: blur(2px);
+}

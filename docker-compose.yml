@@ -1,0 +1,15 @@
+services:
+  landing:
+    build: .
+    image: novacode-landing:latest
+    container_name: novacode-landing
+    ports:
+      - "${LANDING_PORT:-8095}:8080"
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
