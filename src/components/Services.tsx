@@ -52,7 +52,7 @@ export function Services() {
               style={revealDelay(index * 80)}
               className="reveal group relative flex flex-col rounded-2xl border border-silver-soft bg-white p-6 shadow-card transition-[border-color,box-shadow,transform] duration-300 hover:-translate-y-1 hover:border-electric/40 hover:shadow-lift"
             >
-              <span className="grid size-12 place-items-center rounded-xl border border-silver-soft bg-mist text-electric transition-colors duration-300 group-hover:border-electric/20 group-hover:bg-electric-soft">
+              <span className="grid size-12 place-items-center rounded-xl border border-silver-soft bg-mist text-electric transition-colors duration-300 group-hover:border-electric/20 group-hover:bg-electric-soft group-hover:text-cyan">
                 <Icon className="size-5" />
               </span>
 

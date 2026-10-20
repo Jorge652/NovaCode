@@ -7,6 +7,10 @@
   --color-electric: #2563eb;
   --color-electric-dark: #1d4ed8;
   --color-electric-soft: #eff4ff;
+  --color-cyan: #0ea5e9;
+  --color-cyan-light: #38bdf8;
+  --color-indigo-brand: #4f46e5;
+  --color-navy: #0b1024;
   --color-silver: #c0c0c0;
   --color-silver-soft: #e4e7ec;
   --color-mist: #f8fafc;
@@ -63,10 +67,25 @@
   }
 }
 
-/* Línea metalizada: detalle gris plata entre bloques. */
+/* Línea divisoria con el degradado de la marca (cian → azul → índigo). */
 @utility silver-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-silver) 20%, var(--color-silver) 80%, transparent);
+  background: linear-gradient(90deg, transparent, rgb(14 165 233 / 0.45) 20%, rgb(37 99 235 / 0.45) 55%, rgb(79 70 229 / 0.35) 80%, transparent);
+}
+
+/* Texto con el degradado del isotipo. */
+@utility text-brand-gradient {
+  background-image: linear-gradient(90deg, var(--color-cyan) 0%, var(--color-electric) 55%, var(--color-indigo-brand) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-brand-gradient-light {
+  background-image: linear-gradient(90deg, var(--color-cyan-light) 0%, #60a5fa 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @utility grid-pattern {

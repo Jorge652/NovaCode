@@ -23,7 +23,7 @@ export function Process() {
                 style={revealDelay(index * 90)}
                 className="reveal relative flex gap-4 sm:flex-col lg:items-center lg:text-center"
               >
-                <span className="relative z-10 grid size-12 shrink-0 place-items-center rounded-full border border-silver bg-white font-display text-lg font-extrabold text-ink shadow-card">
+                <span className="relative z-10 grid size-12 shrink-0 place-items-center rounded-full border border-electric/25 bg-white font-display text-lg font-extrabold text-electric shadow-card">
                   {index + 1}
                 </span>
                 <div>

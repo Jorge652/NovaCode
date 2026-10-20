@@ -38,7 +38,7 @@ export function Pillars() {
               style={revealDelay(index * 90)}
               className="reveal group flex gap-4 rounded-2xl border border-silver-soft bg-white p-6 shadow-card transition-[border-color,box-shadow] duration-300 hover:border-silver hover:shadow-lift sm:gap-5 sm:p-7 lg:flex-col lg:gap-4 lg:p-8"
             >
-              <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-ink text-white transition-colors duration-300 group-hover:bg-electric">
+              <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-navy text-cyan-light ring-1 ring-white/5 transition-colors duration-300 group-hover:bg-electric group-hover:text-white">
                 <Icon className="size-5" />
               </span>
               <div>

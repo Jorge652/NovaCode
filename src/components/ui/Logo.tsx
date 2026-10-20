@@ -1,57 +1,61 @@
 import { useId } from 'react';
 
-type IsotypeProps = {
-  /** Color del fondo donde se dibuja: crea la separación que entrelaza las piezas. */
-  gap?: string;
-  className?: string;
-};
+type IsotypeProps = { className?: string };
 
 /**
- * Isotipo NovaCode: una "N" geométrica de patas azul metalizado y diagonal cobre,
- * entrelazadas (la diagonal pasa sobre la pata izquierda y bajo la derecha).
+ * Isotipo NovaCode: "N" con degradado cian → azul eléctrico → índigo sobre un mosaico
+ * azul noche, con filo luminoso en la diagonal y un trazo "/" que la cruza por detrás.
  */
-export function Isotype({ gap = '#FFFFFF', className = 'size-9' }: IsotypeProps) {
+export function Isotype({ className = 'size-9' }: IsotypeProps) {
   // useId puede incluir ":" o "«»", no válidos dentro de url(#...).
   const id = useId().replace(/[^a-zA-Z0-9_-]/g, '');
-  const blue = `nc-blue-${id}`;
-  const copper = `nc-copper-${id}`;
+  const g = (name: string) => `nc-${name}-${id}`;
 
   return (
     <svg viewBox="0 0 64 64" aria-hidden="true" className={`shrink-0 ${className}`}>
       <defs>
-        <linearGradient id={blue} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#60A5FA" />
-          <stop offset="0.45" stopColor="#2563EB" />
-          <stop offset="1" stopColor="#1E3A8A" />
+        <linearGradient id={g('slash')} gradientUnits="userSpaceOnUse" x1="44.5" y1="17" x2="20.5" y2="49">
+          <stop offset="0" stopColor="#2E7BE6" stopOpacity="0.9" />
+          <stop offset="0.42" stopColor="#1E3A8A" stopOpacity="0.25" />
+          <stop offset="0.6" stopColor="#1E40AF" stopOpacity="0.25" />
+          <stop offset="1" stopColor="#5CD6F5" />
         </linearGradient>
-        <linearGradient id={copper} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#F6C7A1" />
-          <stop offset="0.5" stopColor="#C9825A" />
-          <stop offset="1" stopColor="#8A4B2A" />
+        <linearGradient id={g('left')} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#3DD5F3" />
+          <stop offset="1" stopColor="#2563EB" />
+        </linearGradient>
+        <linearGradient id={g('diag')} gradientUnits="userSpaceOnUse" x1="20" y1="15" x2="45" y2="51">
+          <stop offset="0" stopColor="#2563EB" />
+          <stop offset="1" stopColor="#4F46E5" />
+        </linearGradient>
+        <linearGradient id={g('right')} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#1D4ED8" />
+          <stop offset="1" stopColor="#4338CA" />
         </linearGradient>
       </defs>
-      {/* Orden de capas: pata izquierda → diagonal → pata derecha (entrelazado). */}
-      <polygon points="9,5 23,5 18,59 4,59" fill={`url(#${blue})`} stroke={gap} strokeWidth="2.5" strokeLinejoin="round" />
-      <polygon points="10.5,6.5 13.5,6.5 8.6,57.5 5.6,57.5" fill="#FFFFFF" opacity="0.28" />
-      <polygon points="9,5 24,5 55,59 40,59" fill={`url(#${copper})`} stroke={gap} strokeWidth="2.5" strokeLinejoin="round" />
-      <polygon points="46,5 60,5 55,59 41,59" fill={`url(#${blue})`} stroke={gap} strokeWidth="2.5" strokeLinejoin="round" />
-      <polygon points="47.5,6.5 50.5,6.5 45.6,57.5 42.6,57.5" fill="#FFFFFF" opacity="0.28" />
+      <rect width="64" height="64" rx="14" fill="#0B1024" />
+      <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="#FFFFFF" strokeOpacity="0.07" />
+      <line x1="44.5" y1="17" x2="20.5" y2="49" stroke={`url(#${g('slash')})`} strokeWidth="5.5" strokeLinecap="round" />
+      <g strokeWidth="0.8" strokeLinejoin="round">
+        <polygon points="18,15 23.5,15 23.5,42 18,42" fill={`url(#${g('left')})`} stroke={`url(#${g('left')})`} />
+        <polygon points="41.7,31 47.2,27 47.2,51 41.7,51" fill={`url(#${g('right')})`} stroke={`url(#${g('right')})`} />
+        <polygon points="18,15 23.5,15 47.2,51 41.7,51" fill={`url(#${g('diag')})`} stroke={`url(#${g('diag')})`} />
+      </g>
+      <line x1="23.5" y1="23.4" x2="41.7" y2="51" stroke="#7DE3FF" strokeWidth="1.3" />
     </svg>
   );
 }
 
 type LogoProps = { inverted?: boolean; className?: string };
 
-/** Isotipo + logotipo: "Nova" en negrita y "Code" en trazo fino, como en el manual de marca. */
+/** Isotipo + logotipo: "Nova" en tono base y "Code" en cian, como en la propuesta de marca. */
 export function Logo({ inverted = false, className = '' }: LogoProps) {
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`}>
-      <Isotype gap={inverted ? '#101828' : '#FFFFFF'} />
-      <span
-        className={`font-display text-[1.35rem] leading-none tracking-tight ${inverted ? 'text-white' : 'text-ink'}`}
-      >
-        <span className="font-extrabold">Nova</span>
-        <span className="font-light">Code</span>
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
+      <Isotype />
+      <span className="font-display text-[1.35rem] leading-none font-extrabold tracking-tight">
+        <span className={inverted ? 'text-white' : 'text-ink'}>Nova</span>
+        <span className={inverted ? 'text-cyan-light' : 'text-cyan'}>Code</span>
       </span>
     </span>
   );

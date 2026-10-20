@@ -15,9 +15,8 @@ export function Footer({ onOpenLegal }: Props) {
       <div className="container-x grid grid-cols-2 gap-x-6 gap-y-10 py-14 sm:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-8">
         <div className="col-span-2 sm:col-span-3 lg:col-span-1">
           <Logo />
-          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.2em] text-ink-soft uppercase">
-            Desarrollo de software profesional y acelerado
-          </p>
+          <p className="mt-4 text-[0.7rem] font-semibold tracking-[0.2em] text-ink-soft uppercase">Desarrollo de software</p>
+          <p className="mt-1 text-sm text-muted italic">Innovación en cada línea de código.</p>
           <p className="mt-3 max-w-sm leading-relaxed text-muted">
             <strong className="font-semibold text-ink">NovaCode</strong> - Desarrollo de Software Profesional en
             Ecuador. Conectando ideas con soluciones en tiempo récord.

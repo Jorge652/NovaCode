@@ -16,7 +16,7 @@ const SIDEBAR = [LayoutDashboard, ShoppingCart, Package, Users];
 export function HeroMockup() {
   return (
     <div className="relative mx-auto w-full max-w-xl lg:max-w-none" aria-hidden="true">
-      <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-electric/10 via-transparent to-silver/30 blur-2xl" />
+      <div className="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-cyan/15 via-transparent to-indigo-brand/15 blur-2xl" />
 
       <div className="overflow-hidden rounded-2xl border border-silver/70 bg-white shadow-mockup">
         {/* Barra del navegador */}
@@ -37,7 +37,7 @@ export function HeroMockup() {
               <span
                 key={index}
                 className={`grid size-9 place-items-center rounded-lg ${
-                  index === 0 ? 'bg-ink text-white' : 'text-muted'
+                  index === 0 ? 'bg-navy text-cyan-light' : 'text-muted'
                 }`}
               >
                 <Icon className="size-4" />
@@ -69,7 +69,7 @@ export function HeroMockup() {
                 {BARS.map((height, index) => (
                   <div key={index} className="flex h-full flex-1 flex-col justify-end gap-1">
                     <div
-                      className={`w-full rounded-t-md ${index === 5 ? 'bg-electric' : 'bg-electric/20'}`}
+                      className={`w-full rounded-t-md ${index === 5 ? 'bg-gradient-to-t from-electric to-cyan' : 'bg-electric/20'}`}
                       style={{ height: `${height}%` }}
                     />
                     <span className="text-center text-[9px] text-muted">{DAYS[index]}</span>
@@ -100,7 +100,7 @@ export function HeroMockup() {
 
       {/* Tarjetas flotantes */}
       <div className="absolute -top-8 right-2 flex sm:-top-4 items-center gap-2.5 rounded-xl border border-silver-soft bg-white px-3.5 py-2.5 shadow-lift sm:-right-4">
-        <CheckCircle2 className="size-5 text-electric" />
+        <CheckCircle2 className="size-5 text-cyan" />
         <div className="leading-tight">
           <p className="text-xs font-semibold text-ink">Prototipo listo</p>
           <p className="text-[11px] text-muted">Entregado en 48 h</p>

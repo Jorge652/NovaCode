@@ -14,7 +14,7 @@ export function Hero() {
   return (
     <section id="inicio" aria-labelledby="hero-title" className="relative overflow-hidden bg-white">
       <div className="pointer-events-none absolute inset-0 -z-0 grid-pattern [mask-image:radial-gradient(ellipse_70%_60%_at_70%_30%,black,transparent)]" />
-      <div className="pointer-events-none absolute -top-40 right-0 -z-0 size-[36rem] rounded-full bg-electric/[0.07] blur-3xl" />
+      <div className="pointer-events-none absolute -top-40 right-0 -z-0 size-[36rem] rounded-full bg-cyan/[0.08] blur-3xl" />
 
       <div className="container-x relative grid items-center gap-14 pt-28 pb-20 sm:pt-32 md:gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:grid-cols-[1.15fr_0.85fr] lg:pt-32 lg:pb-24 xl:pt-36">
         <div className="max-w-2xl lg:max-w-none">
@@ -32,9 +32,9 @@ export function Hero() {
             className="mt-5 font-display text-[2.15rem] leading-[1.12] font-extrabold tracking-tight text-balance text-ink sm:text-5xl md:text-[3.25rem] lg:text-[3.05rem] xl:text-[3.5rem]"
           >
             Digitalizamos tu negocio y automatizamos tus procesos{' '}
-            <span className="relative text-electric sm:whitespace-nowrap">
+            <span className="relative text-brand-gradient sm:whitespace-nowrap">
               en tiempo récord.
-              <span className="absolute inset-x-0 -bottom-1 hidden h-[3px] rounded-full sm:block bg-gradient-to-r from-silver via-silver/70 to-transparent" />
+              <span className="absolute inset-x-0 -bottom-1 hidden h-[3px] rounded-full bg-gradient-to-r from-cyan via-electric/60 to-transparent sm:block" />
             </span>
           </h1>
 

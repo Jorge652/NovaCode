@@ -20,7 +20,7 @@ export function Academic() {
         <div className="relative overflow-hidden rounded-3xl border border-electric/15 bg-gradient-to-br from-white via-white to-electric-soft p-5 shadow-card sm:p-10 lg:p-14">
           <div className="relative grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-14">
             <div className="reveal">
-              <p className="inline-flex items-center gap-2 rounded-full bg-ink px-3 py-1.5 text-xs font-semibold text-white">
+              <p className="inline-flex items-center gap-2 rounded-full bg-navy px-3 py-1.5 text-xs font-semibold text-cyan-light">
                 <GraduationCap className="size-4" />
                 Línea académica
               </p>
@@ -51,7 +51,7 @@ export function Academic() {
                   style={revealDelay(index * 90)}
                   className="reveal flex items-start gap-4 rounded-2xl border border-silver-soft bg-white/90 p-4 shadow-card backdrop-blur-sm sm:p-5"
                 >
-                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-electric text-white">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-cyan to-electric text-white">
                     <Icon className="size-5" />
                   </span>
                   <p className="pt-1 leading-relaxed font-medium text-ink-soft">{text}</p>

@@ -42,11 +42,11 @@ export function Projects() {
               className="reveal flex flex-col overflow-hidden rounded-2xl last:sm:col-span-2 last:lg:col-span-1 border border-silver-soft bg-white shadow-card transition-shadow duration-300 hover:shadow-lift"
             >
               <div className="relative flex items-center justify-between border-b border-silver-soft bg-gradient-to-br from-mist to-white px-6 py-5">
-                <span className="grid size-12 place-items-center rounded-xl bg-ink text-white">
+                <span className="grid size-12 place-items-center rounded-xl bg-navy text-cyan-light">
                   <Icon className="size-5" />
                 </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-silver-soft bg-white px-3 py-1 text-xs font-semibold whitespace-nowrap text-ink-soft">
-                  <BadgeCheck className="size-3.5 text-electric" />
+                  <BadgeCheck className="size-3.5 text-cyan" />
                   {tag}
                 </span>
               </div>
